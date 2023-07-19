@@ -18,27 +18,32 @@ void clear();
 int getDigit(const int number);
 int sumOddDigits(const string cardNumber);
 int sumEvenDigits(const string cardNumber);
+bool checkResult(int result);
 
 int main()
 {
     string cardNumber;
     int result = 0;
+    bool valid;
 
     cout << "Enter a Credit Card Number: ";
     cin >> cardNumber;
 
     result = sumEvenDigits(cardNumber) + sumOddDigits(cardNumber);
+    valid = checkResult(result);
 
-    if (result % 10 == 0)
+    if (!valid)
     {
-        cout << "Valid!";
+
+        cout << std::endl
+             << result << " is not divisible by 10.\n";
     }
     else
     {
-        cout << "Not valid!";
+        cout << std::endl
+             << result << " is divisible by 10.\n";
     }
-
-    cout << "Result: " << result;
+    // cout << "Result: " << result;
 
     return 0;
 }
@@ -93,4 +98,21 @@ int sumEvenDigits(const string cardNumber)
     }
     cout << "\nThe sum of odd digits is: " << sum << std::endl;
     return sum; // Return the sum of even-positioned digits
+}
+
+bool checkResult(int result)
+{
+    bool valid;
+    if (result % 10 == 0)
+    {
+        cout << "Valid!";
+        valid = true;
+    }
+    else
+    {
+        cout << "Not valid!";
+        valid = false;
+    }
+
+    return valid;
 }
