@@ -2,7 +2,7 @@
 #include <chrono>
 #include <thread>
 
-// using & in swap function to pass by reference
+// NOTE: using & in swap function to pass by reference
 
 using std::cin, std::cout, std::string;
 
