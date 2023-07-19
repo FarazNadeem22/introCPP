@@ -1,2 +1,2 @@
-
-void printXY(string x, string y)
+    name = "False Name";
+    age = 0;
