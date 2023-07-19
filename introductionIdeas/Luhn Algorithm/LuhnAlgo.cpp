@@ -5,15 +5,10 @@
 /*
     Luhn Algorithm
     ---------------
-    1. Double every second digit from right to left. If the doubled number is 2 digits, then split them.
-    2. Add all single digits from step 1
-    3. Add all odd numbered digits from right to left
-    4. Sum both results
-    5. If the sum if divisible by 10 then the number is valid
-
-    example number: 6011 0009 9013 9424
-                    1 2  2   1 8   2  1  8   4   = 29
-
+    1. sum all odd digits
+    2. sum all even digits
+    3. add the two sums together
+    4. if the result is divisible by 10 then the credit card  number is valid
 */
 
 using std::cin, std::cout, std::string, std::stoi;
@@ -78,7 +73,7 @@ int sumOddDigits(const string cardNumber)
             sum += digit;
         }
     }
-
+    cout << "\nThe sum of odd digits is: " << sum << std::endl;
     return sum; // Return the sum of odd-positioned digits
 }
 
@@ -96,6 +91,6 @@ int sumEvenDigits(const string cardNumber)
             sum += digit;
         }
     }
-
+    cout << "\nThe sum of odd digits is: " << sum << std::endl;
     return sum; // Return the sum of even-positioned digits
 }
