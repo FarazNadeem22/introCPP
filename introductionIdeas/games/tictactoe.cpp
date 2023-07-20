@@ -2,6 +2,7 @@
 #include <chrono>
 #include <thread>
 #include <ctime>
+#include <string>
 
 using std::cin, std::cout, std::string, std::stoi;
 
@@ -66,6 +67,7 @@ void drawBoard(char *spaces)
 void playerMove(char *spaces, char player)
 {
     int number;
+    string input;
     bool validInput = false;
     do
     {
@@ -73,9 +75,24 @@ void playerMove(char *spaces, char player)
         cout << "Choose your spot: (1-9) ";
 
         // Prompt the user to choose a spot
-        cin >> number;
-        number--;
 
+        do
+        {
+            cin >> input;
+            if (input.length() == 1 && std::isdigit(input[0]))
+            {
+                number = std::stoi(input);
+                validInput = true;
+            }
+            else
+            {
+                cout << "Incorrect input. Try again. Choose your spot: (1-9): ";
+            }
+
+        } while (!validInput);
+
+        number--;
+        validInput = false;
         if (number >= 0 && number <= 8 && spaces[number] == ' ')
         {
             validInput = true;
