@@ -67,45 +67,63 @@ void drawBoard(char *spaces)
 void playerMove(char *spaces, char player)
 {
     int number;
-    string input;
+    std::string input;
     bool validInput = false;
+
     do
     {
         // Prompt the user to choose a spot
-        cout << "Choose your spot: (1-9) ";
+        std::cout << "Choose your spot: (1-9) ";
 
-        // Prompt the user to choose a spot
-
+        // Loop to validate user input
         do
         {
-            cin >> input;
+            // Get user input as a string
+            std::cin >> input;
+
+            // Check if the input is a single character and a digit
             if (input.length() == 1 && std::isdigit(input[0]))
             {
+                // Convert the string input to an integer
                 number = std::stoi(input);
+
+                // Mark the input as valid and exit the loop
                 validInput = true;
             }
             else
             {
-                cout << "Incorrect input. Try again. Choose your spot: (1-9): ";
+                // If the input is invalid, prompt the user to try again
+                std::cout << "Incorrect input. Try again. Choose your spot: (1-9): ";
             }
 
         } while (!validInput);
 
+        // Adjust the number to fit the array index (0-based)
         number--;
+
+        // Reset the validInput flag for the next iteration
         validInput = false;
+
+        // Check if the chosen spot is within the board range and not occupied
         if (number >= 0 && number <= 8 && spaces[number] == ' ')
         {
+            // Mark the input as valid and place the player's symbol on the board
             validInput = true;
             spaces[number] = player;
+
+            // Exit the loop since a valid move has been made
             break;
         }
         else
         {
+            // If the chosen spot is invalid or already occupied, inform the user
             number = 0;
-            cout << "Incorrect Input:";
-            sleepSeconds(1);
-            clear();
-            drawBoard(spaces);
+            std::cout << "Incorrect Input:";
+
+            // Optionally, implement these functions to improve user experience
+            // sleepSeconds(1);
+            // clear();
+            // drawBoard(spaces);
         }
 
     } while (!validInput);
