@@ -38,10 +38,24 @@ int main()
     {
         playerMove(spaces, player);
         drawBoard(spaces);
+
+        if (checkWinner(spaces, player, computer))
+        {
+            running = false;
+            break;
+        }
+
         sleepSeconds(1);
-        computerMove(spaces, computer);
+
         clear();
+        computerMove(spaces, computer);
+
         drawBoard(spaces);
+        if (checkWinner(spaces, player, computer))
+        {
+            running = false;
+            break;
+        }
     }
 
     return 0;
@@ -161,6 +175,17 @@ void computerMove(char *spaces, char computer)
 
 bool checkWinner(char *spaces, char player, char computer)
 {
+    if (spaces[0] == spaces[1] && spaces[1] == spaces[2] && spaces[0] != ' ')
+    {
+        spaces[0] == player ? cout << "YOU WIN!" : cout << "COMPUTER WINs!";
+        return 1;
+    }
+    else if (spaces[3] == spaces[4] && spaces[4] == spaces[5] && spaces[3] != ' ')
+    {
+        spaces[3] == player ? cout << "YOU WIN!" : cout << "COMPUTER WINs!";
+        return 1;
+    }
+
     return 0;
 }
 
