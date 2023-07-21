@@ -138,14 +138,22 @@ void playerMove(char *spaces, char player)
 void computerMove(char *spaces, char computer)
 {
     int number;
+
+    // Seed the random number generator with the current time
     srand(time(0));
 
     while (true)
     {
+        // Generate a random number in the range [0, 8]
         number = rand() % 9;
+
+        // Check if the randomly chosen spot is empty
         if (spaces[number] == ' ')
         {
+            // If the spot is empty, place the computer's symbol on the board
             spaces[number] = computer;
+
+            // Exit the loop since the computer has made a valid move
             break;
         }
     }
