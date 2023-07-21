@@ -44,6 +44,11 @@ int main()
             running = false;
             break;
         }
+        else if (checkTie(spaces))
+        {
+            running = false;
+            break;
+        }
 
         sleepSeconds(1);
 
@@ -52,6 +57,11 @@ int main()
 
         drawBoard(spaces);
         if (checkWinner(spaces, player, computer))
+        {
+            running = false;
+            break;
+        }
+        else if (checkTie(spaces))
         {
             running = false;
             break;
@@ -226,5 +236,13 @@ bool checkWinner(char *spaces, char player, char computer)
 
 bool checkTie(char *spaces)
 {
-    return 0;
+    for (int i = 0; i < 9; i++)
+    {
+        if (spaces[i] == ' ')
+        {
+            return 0;
+        }
+    }
+    cout << "It's a tie!";
+    return 1;
 }
