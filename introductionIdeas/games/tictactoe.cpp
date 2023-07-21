@@ -3,6 +3,7 @@
 #include <thread>
 #include <ctime>
 #include <string>
+#include <cstdlib>
 
 using std::cin, std::cout, std::string, std::stoi;
 
@@ -16,6 +17,7 @@ bool checkTie(char *spaces);
 
 int main()
 {
+    clear();
     char spaces[9] = {' ',
                       ' ',
                       ' ',
@@ -35,6 +37,10 @@ int main()
     while (running)
     {
         playerMove(spaces, player);
+        drawBoard(spaces);
+        sleepSeconds(1);
+        computerMove(spaces, computer);
+        clear();
         drawBoard(spaces);
     }
 
@@ -131,6 +137,18 @@ void playerMove(char *spaces, char player)
 
 void computerMove(char *spaces, char computer)
 {
+    int number;
+    srand(time(0));
+
+    while (true)
+    {
+        number = rand() % 9;
+        if (spaces[number] == ' ')
+        {
+            spaces[number] = computer;
+            break;
+        }
+    }
 }
 
 bool checkWinner(char *spaces, char player, char computer)
