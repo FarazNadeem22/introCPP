@@ -60,6 +60,7 @@ void readInput(char *arr, int length)
     {
         // Prompt the user to enter each grade
         std::cout << "Enter grade " << i + 1 << ": ";
+
         std::cin >> arr[i]; // Read each grade and store it in the array
     }
 }
@@ -72,7 +73,8 @@ void printArr(char *arr, int length)
 
     for (int i = 0; i < length; i++)
     {
-        std::cout << arr[i] << " "; // Print each grade in the array with a space separator
+        // std::cout << toupper(arr[i]) << " "; // Print each grade in the array with a space separator
+        std::cout << static_cast<char>(std::toupper(arr[i])) << " ";
     }
 
     std::cout << std::endl; // Move to the next line after printing the grades
