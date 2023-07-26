@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string>
 #include <cctype>
+#include <algorithm>
+#include <limits>  // For std::numeric_limits
+#include <cstdlib> // For std::streamsize
 
 // Function declarations
 int getInput();
@@ -27,11 +30,12 @@ int main()
 int getInput()
 {
     std::string input;
-    bool isValid = true;
     int number;
 
-    do
+    while (true)
     {
+        bool isValid = true; // Initialize isValid to true for each iteration
+
         // Prompt the user to enter the number of grades
         std::cout << "How many grades do you want to enter: ";
         std::cin >> input;
@@ -42,11 +46,17 @@ int getInput()
             if (!std::isdigit(input[i])) // Using isdigit() from the <cctype> header
             {
                 isValid = false;
+                std::cout << "Invalid input! Please enter a valid number.\n";
+                std::cin.clear();                                                   // Clear the error flag on cin
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore remaining characters in the input buffer
                 break;
             }
         }
 
-    } while (!isValid);
+        // If input is valid, break out of the loop
+        if (isValid)
+            break;
+    }
 
     // Convert the valid input to an integer and return it
     number = std::stoi(input);
@@ -56,12 +66,28 @@ int getInput()
 // Function to read grades from the user and store them in an array
 void readInput(char *arr, int length)
 {
+    bool isValid = true;
     for (int i = 0; i < length; i++)
     {
         // Prompt the user to enter each grade
-        std::cout << "Enter grade " << i + 1 << ": ";
 
-        std::cin >> arr[i]; // Read each grade and store it in the array
+        char temp;
+        do
+        {
+            std::cout << "Enter grade " << i + 1 << ": ";
+            std::cin >> temp;
+            temp = toupper(temp);
+            if (temp == 'A' || temp == 'B' || temp == 'C' || temp == 'D' || temp == 'F')
+            {
+                arr[i] = temp; // Store the value in the arr
+                isValid = false;
+                break;
+            }
+            else
+            {
+                std::cout << "\nIncorrect grade (A, B, C, D ,E, F)\n";
+            }
+        } while (!isValid);
     }
 }
 
