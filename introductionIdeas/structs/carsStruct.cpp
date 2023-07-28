@@ -10,6 +10,7 @@ struct Car
 
 // Function prototype for printing car information.
 void printCar(Car car);
+void paintCar(Car &car, std::string color);
 
 int main()
 {
@@ -20,6 +21,9 @@ int main()
     car1.model = "Accord";
     car1.year = 2022;
     car1.color = "Green";
+
+    // Set color of car1 to Red
+    paintCar(car1, "Red");
 
     // Set properties for car2.
     car2.model = "Camry";
@@ -43,4 +47,18 @@ void printCar(Car car)
     std::cout << car.model << std::endl;
     std::cout << car.year << std::endl;
     std::cout << car.color << std::endl;
+}
+
+// Function to change the color of a car.
+// It takes a reference to a Car object (car) and a new color as input.
+void paintCar(Car &car, std::string color)
+{
+    // The function takes the car object by reference (using '&').
+    // This means that any changes made to the car inside the function will affect the original car outside the function.
+
+    // Update the car's color to the new specified color.
+    car.color = color;
+
+    // Since the function is void, it does not return any value.
+    // Instead, it directly modifies the car's color using the reference.
 }
