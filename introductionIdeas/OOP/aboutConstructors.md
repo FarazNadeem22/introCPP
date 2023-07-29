@@ -48,7 +48,7 @@ In C++, constructors are special member functions of a class that are automatica
 2. An explicit constructor can only be used for direct initialization, and it prevents unintended conversions.
 
 
--- Compiler-Generated Constructors:
+- Compiler-Generated Constructors:
 -----
 1. If you do not explicitly define any constructors (default, parameterized, or copy constructor), the compiler generates them for you.
 2. However, if you define any constructor, the compiler will not generate the default constructor unless you explicitly declare it.
