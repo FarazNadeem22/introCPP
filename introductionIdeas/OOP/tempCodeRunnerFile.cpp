@@ -1,1 +1,5 @@
-Animal
+
+    }
+};
+
+class Sphere : public Shape
