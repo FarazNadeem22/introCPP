@@ -18,23 +18,23 @@ techniques, among others.
 
 ## Learning data structures and algorithms in C++ empowers programmers to:
 
----
-Improve Efficiency: Understanding how to select the right data structure and algorithm can lead to faster execution times and reduced memory consumption, 
-optimizing the performance of the programs.
----
 
-Problem Solving: Data structures and algorithms provide a systematic approach to tackle complex problems and break them down into manageable steps, 
-leading to effective problem-solving skills.
----
+-   Improve Efficiency: Understanding how to select the right data structure and algorithm can lead to faster execution times and reduced memory consumption, 
+    optimizing the performance of the programs.
 
-Code Reusability: By mastering data structures and algorithms, programmers can create modular and reusable code, making it easier to maintain and 
-extend their programs.
----
 
-Prepare for Interviews: Data structures and algorithms are commonly tested topics in technical interviews for software development roles. 
-Knowledge in this area can significantly boost a candidate's chances of success in job interviews.
+-   Problem Solving: Data structures and algorithms provide a systematic approach to tackle complex problems and break them down into manageable steps, 
+    leading to effective problem-solving skills.
 
----
+
+-   Code Reusability: By mastering data structures and algorithms, programmers can create modular and reusable code, making it easier to maintain and 
+    extend their programs.
+
+
+-   Prepare for Interviews: Data structures and algorithms are commonly tested topics in technical interviews for software development roles. 
+    Knowledge in this area can significantly boost a candidate's chances of success in job interviews.
+
+
 
 Throughout this learning journey, you will explore various data structures and algorithms in C++, understand their theoretical foundations, 
 and practice implementing them in real-world scenarios. As you progress, you will gain the ability to select the most appropriate data structures
