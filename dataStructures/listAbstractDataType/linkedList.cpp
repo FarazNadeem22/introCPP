@@ -5,11 +5,11 @@
 class Node
 {
 public:
-    int val;
+    int dataValue;
     Node *next;
 
     // Constructor to initialize the node with data and set the next pointer to nullptr
-    Node(int data) : val(data), next(nullptr) {}
+    Node(int data) : dataValue(data), next(nullptr) {}
 };
 
 // Linked list class to manage the nodes and operations on the list
@@ -72,14 +72,14 @@ public:
         }
     }
 
-    // Function to insert a new element after a specific node with the given value
-    void insert_after_node(int data, int value)
+    // Function to insert a new element after a specific node with the given dataValueue
+    void insert_after_node(int data, int dataValueue)
     {
         try
         {
             Node *new_node = new Node(data);
             Node *ptr = head;
-            while (ptr->val != value)
+            while (ptr->dataValue != dataValueue)
             {
                 ptr = ptr->next;
             }
@@ -88,18 +88,18 @@ public:
         }
         catch (...)
         {
-            // Handle the case when the target node with the given value is not found
-            std::cout << value << " not found in the linked list" << std::endl;
+            // Handle the case when the target node with the given dataValueue is not found
+            std::cout << dataValueue << " not found in the linked list" << std::endl;
         }
     }
 
-    // Function to insert a new element before a specific node with the given value
-    void insert_before_node(int data, int value)
+    // Function to insert a new element before a specific node with the given dataValueue
+    void insert_before_node(int data, int dataValueue)
     {
         try
         {
             Node *new_node = new Node(data);
-            if (head->val == value)
+            if (head->dataValue == dataValueue)
             {
                 // If the target node is the head, insert the new node before the head
                 new_node->next = head;
@@ -107,7 +107,7 @@ public:
                 return;
             }
             Node *ptr = head;
-            while (ptr->next->val != value)
+            while (ptr->next->dataValue != dataValueue)
             {
                 ptr = ptr->next;
             }
@@ -116,8 +116,8 @@ public:
         }
         catch (...)
         {
-            // Handle the case when the target node with the given value is not found
-            std::cout << value << " not found in the linked list" << std::endl;
+            // Handle the case when the target node with the given dataValueue is not found
+            std::cout << dataValueue << " not found in the linked list" << std::endl;
         }
     }
 
@@ -136,20 +136,20 @@ public:
             Node *ptr = head;
             while (ptr != nullptr)
             {
-                std::cout << ptr->val << " ";
+                std::cout << ptr->dataValue << " ";
                 ptr = ptr->next;
             }
             std::cout << std::endl;
         }
     }
 
-    // Function to delete a node with the given value from the linked list
-    void delete_node(int value)
+    // Function to delete a node with the given dataValueue from the linked list
+    void delete_node(int dataValueue)
     {
         try
         {
             // Check if the target node is the head node
-            if (head->val == value)
+            if (head->dataValue == dataValueue)
             {
                 Node *temp = head;
                 head = head->next;
@@ -158,7 +158,7 @@ public:
             }
             // Find the node before the target node
             Node *ptr = head;
-            while (ptr->next->val != value)
+            while (ptr->next->dataValue != dataValueue)
             {
                 ptr = ptr->next;
             }
@@ -168,8 +168,8 @@ public:
         }
         catch (...)
         {
-            // Handle the case when the target node with the given value is not found
-            std::cout << value << " not found in the list" << std::endl;
+            // Handle the case when the target node with the given dataValueue is not found
+            std::cout << dataValueue << " not found in the list" << std::endl;
         }
     }
 
