@@ -109,16 +109,83 @@ public:
             }
         }
     }
+
+    Node *findNode(std::string name)
+    {
+        // Function to find a node with a given name in the linked list.
+        // Returns a pointer to the node if found, otherwise returns nullptr.
+
+        // Start traversing the linked list from the head node.
+        Node *ptr = head;
+
+        // Traverse through the linked list until the end (ptr == nullptr) is reached.
+        while (ptr != nullptr)
+        {
+            // Check if the current node's data matches the given name.
+            if (ptr->data == name)
+            {
+                // If the node's data matches the given name, return the pointer to the node.
+                return ptr;
+            }
+
+            // Move the pointer to the next node in the linked list.
+            ptr = ptr->next;
+        }
+
+        // If the function reaches this point, it means the node with the given name was not found.
+        // Return nullptr to indicate that the node was not found in the linked list.
+        return nullptr;
+    }
+
+    void deleteAfter(std::string name)
+    {
+        // Find the node with the given name in the linked list.
+        Node *ptr = findNode(name);
+
+        // Check if the node with the given name exists and has a node following it.
+        if (ptr != nullptr)
+        {
+            // If the node to be deleted is the last node (next node is nullptr),
+            // then there is nothing to delete after the given node.
+            if (ptr->next == nullptr)
+            {
+                std::cout << "This is the last node, there is nothing to delete after.\n";
+            }
+            else
+            {
+                // Save the pointer to the node to be deleted.
+                Node *tmpPtr = ptr->next;
+
+                // Update the link to skip the node to be deleted.
+                ptr->next = tmpPtr->next;
+
+                // Delete the node.
+                delete tmpPtr;
+            }
+        }
+        else
+        {
+            // The node with the given name does not exist or it's the last node, so there's nothing to delete.
+            std::cout << "The node with the given name <<<" << name << ">>> does not exist.\n";
+        }
+    }
 };
 
 int main()
 {
     linkedList list;
     list.prettyPrint();
-    list.insert("Faraz");
-    list.insert("Nadeem");
-    list.insert("Siddiqi");
+    list.insert("Boston");
+    list.insert("New York");
+    list.insert("Los Angles");
+    list.insert("Buffalo");
+    list.insert("Fredonia");
     list.prettyPrint();
-    list.pop();
+    // list.pop();
+    list.prettyPrint();
+    list.deleteAfter("New York");
+    list.deleteAfter("Boston");
+    list.deleteAfter("Dallas");
+    list.deleteAfter("Fredonia");
     list.prettyPrint();
 }
