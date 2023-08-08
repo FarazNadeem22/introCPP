@@ -200,6 +200,8 @@ int main()
     // Displaying the linked list
     std::cout << "Linked List: ";
     list.printLinkedList();
+    list.delete_node(10);
+    list.printLinkedList();
 
     // Clearing the linked list and freeing memory
     list.clear();
