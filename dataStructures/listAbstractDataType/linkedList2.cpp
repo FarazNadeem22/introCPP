@@ -139,6 +139,31 @@ public:
             std::cout << "An error has occurred.\n";
         }
     }
+
+    void deleteAfter(int dataPoint)
+    {
+        // Check if list is empty
+        if (head == nullptr)
+        {
+            std::cout << "The list is empty";
+            return;
+        }
+
+        // Check to see if there if there is only one item in the list
+        if (head->next == nullptr)
+        {
+            std::cout << "The is only one node in the list. Try using another function other than deleteAfter()\n";
+            return;
+        }
+
+        Node *ptr = head;
+        while (ptr->next != nullptr && ptr->dataValue != dataPoint)
+        {
+            ptr = ptr->next;
+        }
+        ptr->next = ptr->next->next;
+        return;
+    }
 };
 
 int main()
@@ -154,7 +179,10 @@ int main()
 
     l1.printList();
 
-    l1.deleteNode(700);
+    l1.deleteNode(30);
 
+    l1.printList();
+
+    l1.deleteAfter(20);
     l1.printList();
 }
