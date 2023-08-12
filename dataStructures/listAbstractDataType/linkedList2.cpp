@@ -61,6 +61,27 @@ public:
         }
     }
 
+    // Destructor to free memory
+    ~linkedList()
+    /*
+     In C++, you don't typically need a garbage collector like in languages such as Java or C#.
+     C++ uses manual memory management with destructors and memory deallocation, but modern C++
+     practices often lean towards using smart pointers and RAII (Resource Acquisition Is Initialization)
+     principles to manage memory automatically.
+    */
+    {
+        // Start from the head of the list
+        Node *current = head;
+
+        // Traverse the list and delete nodes
+        while (current != nullptr)
+        {
+            Node *temp = current;    // Store the current node pointer
+            current = current->next; // Move to the next node
+            delete temp;             // Delete the stored node, freeing memory
+        }
+    }
+
     // Function to insert a new node at the end of the list
     void insertNode(int dataPoint)
     {
@@ -214,13 +235,19 @@ int main()
     std::cout << "List after deleting node after 20: ";
     l1.printList();
 
+    // Create a linkedList instance with initial values
     linkedList l2({12, 22, 33, 14, 45, 50, 30, 34, 48, 38});
+    std::cout << "List l2: ";
     l2.printList();
 
+    // Delete node with value 45 from l2
     l2.deleteNode(45);
+    std::cout << "List l2 after deleting node 45: ";
     l2.printList();
 
+    // Delete node after value 50 from l2
     l2.deleteAfter(50);
+    std::cout << "List l2 after deleting node after 50: ";
     l2.printList();
 
     return 0;
