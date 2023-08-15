@@ -33,9 +33,7 @@ techniques, among others.
 
 -   Prepare for Interviews: Data structures and algorithms are commonly tested topics in technical interviews for software development roles. 
     Knowledge in this area can significantly boost a candidate's chances of success in job interviews.
-
-
-
+    
 Throughout this learning journey, you will explore various data structures and algorithms in C++, understand their theoretical foundations, 
 and practice implementing them in real-world scenarios. As you progress, you will gain the ability to select the most appropriate data structures
 and algorithms for different problem domains, enabling you to become a more proficient and confident C++ programmer.
