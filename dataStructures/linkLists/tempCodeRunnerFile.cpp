@@ -1,2 +1,1 @@
-
-    l1.printList();
+current->next = new Node(dataVector[i]);
