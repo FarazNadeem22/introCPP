@@ -4,17 +4,23 @@
 
 using std::cin, std::cout, std::string;
 
+// Function to pause execution for a specified number of seconds.
+// Parameters:
+//   seconds: Number of seconds to sleep.
 void sleepSeconds(int seconds)
 {
-    // cout << "Sleeping for " << seconds << "seconds\n";
     std::this_thread::sleep_for(std::chrono::seconds(seconds));
 }
 
+// Function to clear the console screen.
 void clear()
 {
     system("cls");
 }
 
+// Function to get the user's choice (A, B, C, D) and validate input.
+// Returns:
+//   char: The user's valid choice (A, B, C, D).
 char getChoice()
 {
     bool condition = true;
@@ -24,6 +30,7 @@ char getChoice()
         cin >> guess;
         guess = toupper(guess); // Convert the input to uppercase
 
+        // Validate the user's input
         if (guess != 'A' && guess != 'B' && guess != 'C' && guess != 'D')
         {
             condition = false;
@@ -41,8 +48,9 @@ char getChoice()
 
 int main()
 {
-    clear();
+    clear(); // Clear the console screen
 
+    // Arrays containing quiz questions, options, and the answer key
     string questions[] = {"1. What is the biggest city of Pakistan?: ",
                           "2. What is the capital of England?: ",
                           "3. What is the only even prime number?: ",
@@ -53,12 +61,9 @@ int main()
                            {"A: 4, B: 6 , C: 342 , D: 2"},
                            {"A: Boston, B: Worcester , C: Gloucester ,D: Amherst"}};
 
-    char answerKey[] = {'A',
-                        'A',
-                        'D',
-                        'A'};
+    char answerKey[] = {'A', 'A', 'D', 'A'};
 
-    int size = sizeof(questions) / sizeof(questions[0]);
+    int size = sizeof(questions) / sizeof(questions[0]); // Calculate the number of questions
 
     char guess;
     int score = 0;
@@ -68,15 +73,16 @@ int main()
         cout << questions[i] << std::endl;
         cout << "**********************************" << std::endl;
 
+        // Display options for the current question
         for (int j = 0; j < sizeof(options[i]) / sizeof(options[0][0]); j++)
         {
             cout << options[i][j];
         }
-        cout << std::endl
-             << "Answer: ";
+        cout << std::endl << "Answer: ";
 
-        guess = getChoice();
+        guess = getChoice(); // Get user's choice
 
+        // Check if the user's choice matches the answer key
         if (toupper(guess) == answerKey[i])
         {
             cout << "Correct!";
@@ -85,11 +91,13 @@ int main()
         else
         {
             cout << "Wrong! The correct answer was : " << answerKey[i];
-            sleepSeconds(1);
+            sleepSeconds(1); // Pause for 1 second
         }
-        sleepSeconds(1);
-        clear();
+        sleepSeconds(1); // Pause for 1 second
+        clear(); // Clear the console screen for the next question
     }
+
+    // Display the final score
     cout << "**********************************" << std::endl;
     cout << "Your total score: " << score << "/" << size << std::endl;
     cout << "**********************************" << std::endl;
