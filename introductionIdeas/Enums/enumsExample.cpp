@@ -14,7 +14,7 @@ enum Day
 
 int main()
 {
-    // Initialize a variable "today" of type Day with the value "sunday".
+    // Initialize a variable "today" of type Day with the value "tuesday".
     Day today = tuesday;
 
     // Use a switch statement to check the value of "today".
